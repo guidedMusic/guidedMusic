@@ -1,0 +1,53 @@
+<div class="row no-gutters">
+
+
+
+
+  <form [formGroup]="searchQueryForm" class="col-9 mx-auto col-sm-5">
+
+    <div class="input-group my-4">
+
+      <input type="text" class="form-control" formControlName="search" placeholder="search for a track">
+      <div class="input-group-append">
+        <button (click)="onSearch()" class="btn btn-light" [disabled]="searchQueryForm.invalid">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+
+    </div>
+
+
+  </form>
+
+
+
+
+
+
+
+
+
+
+  <hr class="col-10 mx-auto">
+
+  <div class="col-12  col-sm-7 col-lg-6 mx-auto px-2">
+
+    <p class="text-center mb-2 text-muted">Search result</p>
+    <small class="small text-warning">loaded {{searchResults.length}} results</small>
+    <div [ngClass]="{'d-none':!searched}" class="w-100 mt-3">
+      <div class="card text-center border-0 p-0" *ngFor="let result of searchResults">
+        <div class="card-body">
+          <h4 class="card-subtitle text-muted">{{result.track}}</h4>
+          <p class="small">popularity {{result.meta.popularity}}%</p>
+          by
+          <a [routerLink]="['','artist',result.artist_lower]" class="btn btn-sm">{{result.artist}}</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</div>

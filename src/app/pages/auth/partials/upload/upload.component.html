@@ -1,0 +1,70 @@
+<form [formGroup]="uploadForm" (submit)="onSubmit()" novalidate class="w-100" id="uploadForm">
+
+
+  <div class="form-row">
+
+
+    <div class="col-12 col-md-5">
+
+      <div class="input-group my-3 px-2">
+        <label for="category" class="input-group-prepend">Category</label>
+        <select id="category" class="form-control" formControlName="category">
+          <option value="">Select a media category</option>
+          <option *ngFor="let category of mediaCategories" [value]="category">{{category}}</option>
+        </select>
+      </div>
+      <div class="input-group my-3 px-2">
+        <label for="track" class="input-group-prepend">Track</label>
+        <input id="track" type="text" class="form-control" formControlName="track">
+      </div>
+      <div class="alert alert-info text-center w-100 mt-2 ml-3">
+        <p class="small">is this a remix?</p>
+        <div class="w-100">
+          <label for="radio-is-remix">yes
+            <input type="radio" name="is_remix" formControlName="is_remix" value="true" id="radio-is-remix">
+          </label>&nbsp;&nbsp;
+          <label for="radio-is-not-remix">no
+            <input type="radio" name="is_remix" value="false" formControlName="is_remix" id="radio-is-not-remix">
+          </label>
+        </div>
+      </div>
+      <div class="input-group my-3 px-2">
+        <label for="artist" class="input-group-prepend">Artist</label>
+        <input id="artist" type="text" class="form-control" formControlName="artist">
+      </div>
+      <div class="input-group my-3 px-2">
+        <label for="album" class="input-group-prepend">Album</label>
+        <input id="album" type="text" class="form-control" formControlName="album">
+      </div>
+      <div class="input-group my-3 px-2">
+        <label for="contributors" class="input-group-prepend">Contributors</label>
+        <input id="contributors" type="text" class="form-control" formControlName="contributors">
+      </div>
+      <div class="input-group my-3 px-2">
+        <label for="genre" class="input-group-prepend">Genre</label>
+        <select id="genre" class="form-control" formControlName="genre">
+          <option value="">pick a category</option>
+          <option *ngFor="let genre of (genres|async)" [value]="genre">{{genre}}</option>
+        </select>
+      </div>
+
+
+      <h4 class="text-muted pl-3">files</h4>
+
+      <div class="input-group my-3 px-2">
+        <label for="trackFile" class="input-group-prepend">Audio File</label>
+        <input id="trackFile" type="file" class="form-control">
+      </div>
+      <div class="input-group my-3 px-2">
+        <label for="caption" class="input-group-prepend">Caption</label>
+        <input id="caption" type="file" class="form-control">
+      </div>
+      <div class="col-12 text-center mt-3">
+        <input type="submit" class="btn btn-primary" [disabled]="!uploadForm.valid" value="upload">
+      </div>
+    </div>
+
+
+  </div>
+
+</form>

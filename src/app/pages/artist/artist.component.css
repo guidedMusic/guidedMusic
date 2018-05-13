@@ -1,0 +1,12 @@
+#artistCaption{
+    width:100%;
+    height:10rem;
+    background-color:orange;
+    display:block;
+    margin:0 auto;
+}
+#backBtn{
+    border-radius:0;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}

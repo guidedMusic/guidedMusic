@@ -1,0 +1,53 @@
+<div class="row no-gutters px-2">
+
+
+
+
+  <form class="offset-sm-8 mx-auto col-10 col-sm-4" [formGroup]="searchForm">
+    <div class="input-group">
+      <input type="text" formControlName="search" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" placeholder="search for song ...">
+      <div class="input-group-append">
+        <button class="btn btn-light" (click)="search()" [disabled]="searchForm.invalid">search</button>
+      </div>
+    </div>
+  </form>
+
+
+
+
+  <h4 class="text-danger my-2 col-12">Featured</h4>
+
+
+
+
+
+
+
+  <hr class="col-8 float-left">
+
+
+  <div class="col-12 col-sm-6 py-2 rounded border-light">
+
+    <div class="card border-left-0 border-right-0 p-0 border-top-0 border-bootom-0" *ngFor="let item of items">
+      <div class="card-body border-0">
+        <h5 class="card-title text-muted">{{item.track}}
+          <span class="btn-group-sm btn-group">
+            <a [routerLink]="['','artist',item.artist]" class="btn">
+              <i class="fa fa-user"></i> view artist
+            </a>
+          </span>
+          <i class="badge badge-primary float-right"> {{item.category}}</i>
+        </h5>
+        <h6 class="card-subtitle">by {{item.artist}}</h6>
+        <img src="" alt="caption" class="image-caption">
+      </div>
+      <div class="card-footer">
+        <p class="card-text small">uploaded on {{item.uploaded_on|date}}</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>

@@ -1,0 +1,20 @@
+
+@media(max-width: 567px){
+    html{
+        font-size: .7rem;
+    }
+}
+@media(min-width: 567px) and (max-width: 768px){
+    html{
+        font-size: .9rem;
+    }
+}
+@media(min-width: 768px){
+    html{
+        font-size: initial;
+    }
+}
+
+.bg-light-red{
+    background-color:rgb(255, 91, 91);
+}

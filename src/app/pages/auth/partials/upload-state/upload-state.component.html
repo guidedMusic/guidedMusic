@@ -1,0 +1,25 @@
+<div class="container-fluid" [ngSwitch]="page">
+
+  <h2 class="text-center">Upload Status</h2>
+
+
+  <div [ngSwitch]="page">
+    <div class="pt-5 text-center" *ngSwitchCase="'uploaded'">
+      <div class="alert alert-danger">
+        <p>Upload succesful</p>
+        <p class="text-center">
+          <i class="fa fa-check fa-2x"></i>
+        </p>
+        <a [routerLink]="['','panel','upload']" class="btn btn-primary btn-sm">upload another file</a>
+      </div>
+    </div>
+
+    <div class="pt-5 text-center" *ngSwitchCase="'uploadfailed'">
+      <div class="alert alert-danger">
+        <p class="text-center text-danger">upload failed</p>
+        <a [routerLink]="['','panel','upload']" class="btn btn-primary btn-sm">try again</a>
+      </div>
+    </div>
+
+  </div>
+</div>

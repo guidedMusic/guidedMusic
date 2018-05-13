@@ -1,0 +1,40 @@
+<div class="row no-gutters px-2">
+  
+  <div class="col-12">
+    <h4 class="d-inline">Music tracks</h4>
+    <a [routerLink]="['','search']" class="btn float-right">search<i class="fa fa-search"></i></a>
+  </div>
+
+  <div class="col-12 col-sm-6 col-sm-4" *ngIf="!!tracks">
+
+    <div class="card bg-light my-1" *ngFor="let track of tracks">
+      <div class="card-body">
+        <img [src]="sanitize(track.caption)" class="track-caption" alt="Caption">
+        <div class="d-inline-block">
+          <h5 class="card-subtitle">{{track.track}}</h5>
+          <p class="card-text">uploaded by {{track.uploader}}</p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <p class="card-text">{{track.uploaded_on|date}}</p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="col-8 col-sm-6 col-md-4 col-lg-3 mt-3 mb-5 pb-5 px-3 borser-0 rounded">
+    <nav class="nav nav-tabs">
+      <button class="nav-item btn"> <i class="fa fa-chevron-circle-left"></i> previous</button>
+      <button class="nav-item btn">next page <i class="fa fa-chevron-circle-right"></i></button>
+      <button class="nav-item btn">choose page</button>
+    </nav>
+  </div>
+
+
+</div>
+
+
+<div class="w-100" *ngIf="!!!tracks">
+  Loading tracks
+</div>

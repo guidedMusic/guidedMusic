@@ -1,0 +1,79 @@
+<div *ngIf="!!artist">
+
+  <div class="w-100 my-2">
+    <a [routerLink]="['','artist']" class="btn btn-light btn-lg border-info" id="backBtn">
+      <i class="fa fa-chevron-circle-left text-info"></i>
+      browse another artist
+    </a>
+    <a [routerLink]="['','search']" class="btn float-right">search
+      <i class="fa fa-search"></i>
+    </a>
+
+  </div>
+
+  <h3 class="font-italic font-weight-bold pl-3">{{artist}}'s profile
+    <i class="fa fa-music fa-2x"></i>
+  </h3>
+
+
+  <hr class="text-danger">
+
+
+
+
+  <div class="row no-gutters py px-3">
+
+    <div class="col-12 col-sm-6 bg-dark">
+      <img [src]="sanitize(getCaption())" [alt]="artist+'\'s photo'" id="artistCaption">
+    </div>
+
+
+    <div class="col-12 col-sm-4 offset-sm-2 col-sm-4">
+
+
+
+      <h4 class="text-center text-muted">Tracks</h4>
+
+
+
+      <ul class="list-group">
+        <li *ngFor="let track of tracks" class="list-group-item pl-3">
+          {{track.track}}
+          <div class="btn-group btn-group-sm float-right">
+            <button class="btn btn-light">
+              <i class="fa fa-download"></i>
+            </button>
+          </div>
+        </li>
+      </ul>
+
+
+
+    </div>
+
+
+
+    <div class="col-12">
+      <h4>About {{artist}}</h4>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+<div *ngIf="!!!artist">
+
+  <div class="alert alert-info border-0 rounded-0 text-center">
+    <p>Select an Artist to browse</p>
+    <select name="" id="" (change)="goTo(artistVal.value)" #artistVal>
+      <option value="">e.g ({{tracks_loaded_when_no_artist_is_selected[0].artist}})</option>
+      <option *ngFor="let track of tracks_loaded_when_no_artist_is_selected" [value]="track.artist">{{track.artist}}</option>
+    </select>
+  </div>
+
+</div>
